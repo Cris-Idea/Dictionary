@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+        <title>Dictionary</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h1 style="text-align: center;">Dictionary</h1>
+                </div>
+            </div>
+            <form>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Input the word that you want to add or to check if it already is in this dictionary</h5>
+                    </div>
+                    <div class="card-body">
+                        <input type="text" class="form-control" id="wordToBeAdded">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary" onclick="return addNewWord();" id="submit" >Add this word</button>
+                        <button type="button" class="btn btn-success" onclick="return checkWord();" id="check" >Check this word</button>
+                        <p id="checkAnswer" style="padding: 10px; "></p>
+                    </div>
+                </div>
+                <!--
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Input the explanation of the word</h5>
+                    </div>
+                    <div class="card-body">
+                        <input type="text" class="form-control" id="explToBeAdded">
+                    </div>
+                </div>
+                <div id="listWords">
+                </div>
+                 -->
+            </form>
+        </div>  
+        
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+            const dictionary = [];
+            var i = 0;
+            function addNewWord() {
+                dictionary[i] = $('#wordToBeAdded').val();
+                ++i;
+                return false;
+
+            }
+
+            function checkWord() {
+                if (dictionary.includes($('#wordToBeAdded').val()) == true) {
+                    document.getElementById("checkAnswer").innerHTML = "Yes this word allready exists in this dictionary";
+                } else {
+                    document.getElementById("checkAnswer").innerHTML = "No, this word is not in this dictionary";
+                }
+                return false;
+            }
+        </script>
+    </body>
+    
+    
+</html>
